@@ -3,71 +3,60 @@ import Image from 'next/image'
 import styles from '../styles/Layout.module.css'
 import Link from 'next/link'
 import utilStyles from '../styles/Utils.module.css'
-
+import stylePrueba from "../styles/Prueba.module.scss"
+import Cards from './Cards'
+import HeadCard from './Head'
+import MenuLateral from './MenuLateral'
 const name = 'Ferruzola'
 export default function Layout({ children, title, description, home }) {
+  const data = [
+    {nombre:'Bitcoin', nemonico:'BTC'},
+    {nombre:'Etereun', nemonico:'ETH'},
+    {nombre:'JobChain', nemonico:'JOB'},
+    {nombre:'Tether', nemonico:'USDT'},
+  ]
   return (
-    <div className={styles.container}>
+    <div className={stylePrueba.container}>
          <Head>
             <link rel="icon" href="/favicon.ico" />
             <title>{title}</title>
             <meta name="descripcion" content={description}></meta>
         </Head>
+        <MenuLateral></MenuLateral>
+        <div className={stylePrueba.content}>
+          <HeadCard></HeadCard>
+          <div className={stylePrueba.contenData}>
+            {data.map(({nombre, nemonico})=> (
+                <Cards name={nombre} nemon={nemonico}></Cards>
+            ))}
+              {/* <div className={stylePrueba.cards}>
+                <div>
+                  <span>img</span>
+                </div>
+                <div className={stylePrueba.details}>
+                  <div className={stylePrueba.info}>
+                      <div>
+                        <strong><span>Bitcoin</span></strong>
+                        <span className={stylePrueba.gris}>BTC</span>
+                      </div>
+                      <div>
+                        <span>200000 E</span>
+                      </div>
+                  </div>
+                  <div className={stylePrueba.costo}>
+                      <div>
+                        <span>0,9 B</span>
+                      </div>
+                      <div>
+                        <span className={stylePrueba.gris}>-10900</span>
+                      </div>
+                  </div>
+                </div>
+              </div> */}
+          </div>
 
-        <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/img/1.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src="/img/1.jpg"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
+        </div>
 
-        <nav>
-            <Link legacyBehavior href="/">
-                <a>Inicio | </a>
-            </Link>
-            <Link legacyBehavior href="/blog">
-                <a>Blog | </a>
-            </Link>
-            <Link legacyBehavior href="/about">
-                <a>about</a>
-            </Link>
-        </nav>
-        <main>
-            {children}
-        </main>
-
-        {!home && (
-            <div className={styles.backToHome}>
-            <Link href="/">← Back to home</Link>
-            </div>
-        )}
     </div>
   )
 }

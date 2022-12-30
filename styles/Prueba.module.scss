@@ -1,8 +1,67 @@
-.prueba{
-    font-weight: bold;
+.container{
+    display: flex;
+    height: 100%;
 }
-.pruebaItalic{
+.menuLateral{
+    background-color: #191953;
+    width: 3%;
+    color: white;
+}
+.content{
+    padding: 1%;
+    width: 97%;
+}
+.head{
+    border-bottom: 1px solid;
+    display: flex;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+}
+.contentL{
+    width: 50%;
+}
+.contentR{
+    width: 50%;
+    text-align: right;
+}
+.contentRI{
     span{
-        font-style: italic;
+        margin-right: 1%;
     }
+}
+.detailS{
+    span{
+        margin-right: 1%;
+    }
+}
+.clB{
+    color: #191953;
+}
+.details{
+    display: flex;
+}
+.gris{
+    color: gray;
+}
+.cards{
+    min-width: 205px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-right: 1%;
+    padding: 1%;
+    box-shadow: 1px 1px 1px grey;
+}
+.contenData{
+    display: -webkit-box;
+}
+.costo{
+    text-align: right;
+    width: 50%;
+}
+.info{
+    width: 50%;
+    font-size: 14px;
+}
+.imgDetail{
+    min-height: 180px;
 }
