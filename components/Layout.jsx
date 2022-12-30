@@ -29,30 +29,6 @@ export default function Layout({ children, title, description, home }) {
             {data.map(({nombre, nemonico})=> (
                 <Cards name={nombre} nemon={nemonico}></Cards>
             ))}
-              {/* <div className={stylePrueba.cards}>
-                <div>
-                  <span>img</span>
-                </div>
-                <div className={stylePrueba.details}>
-                  <div className={stylePrueba.info}>
-                      <div>
-                        <strong><span>Bitcoin</span></strong>
-                        <span className={stylePrueba.gris}>BTC</span>
-                      </div>
-                      <div>
-                        <span>200000 E</span>
-                      </div>
-                  </div>
-                  <div className={stylePrueba.costo}>
-                      <div>
-                        <span>0,9 B</span>
-                      </div>
-                      <div>
-                        <span className={stylePrueba.gris}>-10900</span>
-                      </div>
-                  </div>
-                </div>
-              </div> */}
           </div>
 
         </div>
